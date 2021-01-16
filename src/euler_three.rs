@@ -1,5 +1,7 @@
 #![allow(unused_parens)]
 
+mod math_helper;
+
 use std::num::Wrapping;
 
 /* 
@@ -68,7 +70,7 @@ fn rho (num: i128) -> i128 {
     loop {
         x1 = func(x1) % num;
         x2 = func(func(x2)) % num;
-        divisor = greatest_common_divisor((x1 - x2).abs(), num);
+        divisor = math_helper::greatest_common_divisor((x1 - x2).abs(), num);
         if(divisor != 1){
             break;
         }
@@ -77,9 +79,7 @@ fn rho (num: i128) -> i128 {
     return divisor;
 }
 
-fn greatest_common_divisor(x1: i128, x2: i128) -> i128 {
-    return if x2 == 0 { x1 } else { greatest_common_divisor(x2, x1 % x2) };
-}
+
 
 fn func(n: i128) -> i128 {
     // i128 will overflow and it's ok
