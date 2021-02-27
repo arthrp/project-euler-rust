@@ -5,8 +5,6 @@ pub fn solve(n: u64) -> u64 {
     let arr = sieve_of_eratosthenes(200000);
     let result = arr[n as usize];
 
-    println!("Answer is {}", result);
-
     return result;
 }
 
